@@ -29,18 +29,18 @@ partition ()
     done
 }
 
-quicksort()
+quicksort ()
 {
     local lo=$1
     local hi=$2
-    if [[ lo -ge hi ]]
+    if [[ $lo -ge $hi ]]
     then
         return
     fi
     partition $lo $hi
     local p=$?
     quicksort $lo $p
-    quicksort $(($p + 1)) $hi
+    quicksort $(($p+1)) $hi
 }
 
 quicksort 0 ${#arr[*]}
